@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: samplesparkjava
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 4567
+      targetPort: 8800
+      protocol: TCP
+  selector:
+    app: samplesparkjava
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: samplesparkjava
+spec:
+  selector:
+    matchLabels:
+      app: samplesparkjava
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: samplesparkjava
+    spec:
+      containers:
+        - image: registry.digitalocean.com/richardchanapp/samplesparkjava-1.0:latest
+          imagePullPolicy: Always
+          name: samplesparkjava
+          ports:
+            - containerPort: 8800
+          resources: {}
+      restartPolicy: Always
+
