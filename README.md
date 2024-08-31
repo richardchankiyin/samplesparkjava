@@ -19,5 +19,5 @@ Hello, world
 curl -s http://localhost:4567/hello/richard (richard is the value of variable)   
 Hello, richard
 
-curl -s http://localhost:4567/reverseme/2345 (2345 is the value of variable)
+curl -s http://localhost:4567/reverseme/2345 (2345 is the value of variable)  
 5432
