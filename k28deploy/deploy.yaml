@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: samplesparkjava
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - name: http
-      port: 4567
-      targetPort: 8800
+      port: 8800
+      targetPort: 4567
       protocol: TCP
   selector:
     app: samplesparkjava
